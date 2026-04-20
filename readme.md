@@ -1,17 +1,13 @@
 <div align="center">
 
-# Arnav Kumar
-
-**Computer Science @ UT Dallas** &nbsp;·&nbsp; Graduating May 2028
-
-<sub>Data Science &nbsp;·&nbsp; ML/AI &nbsp;·&nbsp; Full-Stack &nbsp;·&nbsp; Minor: Business Administration</sub>
-
-<br>
+![Arnav Kumar](header.svg)
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/arnav-kumar2932/)
 [![Email](https://img.shields.io/badge/Email-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:axk230197@utdallas.edu)
 
 </div>
+
+---
 
 ---
 

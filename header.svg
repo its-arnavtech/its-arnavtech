@@ -1,0 +1,99 @@
+<svg viewBox="0 0 1200 280" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a2a1a"/>
+      <stop offset="40%" stop-color="#0d3d2a"/>
+      <stop offset="100%" stop-color="#0a3d5c"/>
+    </linearGradient>
+    <linearGradient id="horizonglow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1a6b3a" stop-opacity="0"/>
+      <stop offset="60%" stop-color="#22c55e" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#16a34a" stop-opacity="0.18"/>
+    </linearGradient>
+    <linearGradient id="earthglow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#15803d" stop-opacity="0"/>
+      <stop offset="35%" stop-color="#22c55e" stop-opacity="0.12"/>
+      <stop offset="65%" stop-color="#0ea5e9" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#0369a1" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="moonrise" cx="72%" cy="38%" r="28%">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softblur">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <clipPath id="bannerclip">
+      <rect width="1200" height="280" rx="10"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#bannerclip)">
+    <rect width="1200" height="280" fill="url(#sky)"/>
+    <rect width="1200" height="280" fill="url(#horizonglow)"/>
+    <ellipse cx="900" cy="50" rx="380" ry="180" fill="url(#moonrise)"/>
+    <rect x="0" y="80" width="1200" height="100" fill="url(#earthglow)"/>
+    <circle cx="80" cy="22" r="1" fill="white" opacity="0.35"/>
+    <circle cx="155" cy="38" r="0.8" fill="white" opacity="0.25"/>
+    <circle cx="240" cy="14" r="1" fill="white" opacity="0.3"/>
+    <circle cx="320" cy="45" r="0.7" fill="white" opacity="0.2"/>
+    <circle cx="420" cy="18" r="1" fill="white" opacity="0.28"/>
+    <circle cx="510" cy="32" r="0.8" fill="white" opacity="0.22"/>
+    <circle cx="60" cy="55" r="0.6" fill="white" opacity="0.18"/>
+    <circle cx="700" cy="20" r="1" fill="white" opacity="0.3"/>
+    <circle cx="780" cy="42" r="0.7" fill="white" opacity="0.2"/>
+    <circle cx="870" cy="15" r="1.1" fill="white" opacity="0.32"/>
+    <circle cx="1050" cy="30" r="0.8" fill="white" opacity="0.25"/>
+    <circle cx="1130" cy="18" r="1" fill="white" opacity="0.3"/>
+    <circle cx="1020" cy="52" r="0.6" fill="white" opacity="0.18"/>
+    <circle cx="950" cy="8" r="0.9" fill="white" opacity="0.28"/>
+    <path d="M0 185 L60 148 L120 162 L190 130 L260 155 L320 118 L400 145 L460 125 L530 150 L600 122 L670 148 L740 115 L810 140 L880 120 L950 145 L1020 118 L1090 138 L1150 125 L1200 140 L1200 280 L0 280 Z" fill="#0a2f1c" opacity="0.7"/>
+    <path d="M0 200 L80 165 L160 178 L240 148 L330 172 L410 152 L490 170 L560 145 L640 168 L720 150 L800 172 L880 148 L960 168 L1040 152 L1120 168 L1200 158 L1200 280 L0 280 Z" fill="#0d3d20" opacity="0.85"/>
+    <path d="M0 222 C80 205, 180 215, 280 205 C370 196, 440 212, 540 208 C630 204, 720 215, 820 207 C910 200, 1000 215, 1100 208 C1140 205, 1170 210, 1200 208 L1200 280 L0 280 Z" fill="#0f4a28"/>
+    <g fill="#062214" opacity="0.95">
+      <polygon points="35,222 45,180 55,222"/>
+      <polygon points="33,210 45,168 57,210"/>
+      <polygon points="31,198 45,155 59,198"/>
+      <rect x="43" y="222" width="4" height="12"/>
+      <polygon points="65,222 74,185 83,222"/>
+      <polygon points="63,210 74,173 85,210"/>
+      <polygon points="61,198 74,160 87,198"/>
+      <rect x="72" y="222" width="4" height="12"/>
+      <polygon points="90,222 97,196 104,222"/>
+      <polygon points="88,212 97,186 106,212"/>
+      <rect x="95" y="222" width="4" height="10"/>
+    </g>
+    <g fill="#062214" opacity="0.95">
+      <polygon points="1095,222 1105,178 1115,222"/>
+      <polygon points="1093,210 1105,165 1117,210"/>
+      <polygon points="1091,197 1105,152 1119,197"/>
+      <rect x="1103" y="222" width="4" height="12"/>
+      <polygon points="1120,222 1130,183 1140,222"/>
+      <polygon points="1118,210 1130,170 1142,210"/>
+      <polygon points="1116,197 1130,157 1144,197"/>
+      <rect x="1128" y="222" width="4" height="12"/>
+      <polygon points="1145,222 1153,195 1161,222"/>
+      <polygon points="1143,212 1153,185 1163,212"/>
+      <rect x="1151" y="222" width="4" height="10"/>
+      <polygon points="1162,222 1168,200 1174,222"/>
+      <polygon points="1160,213 1168,192 1176,213"/>
+      <rect x="1166" y="222" width="3" height="9"/>
+    </g>
+    <g fill="#083520" opacity="0.75">
+      <polygon points="200,207 207,185 214,207"/>
+      <polygon points="198,198 207,175 216,198"/>
+      <rect x="205" y="207" width="3" height="8"/>
+      <polygon points="980,207 987,186 994,207"/>
+      <polygon points="978,198 987,176 996,198"/>
+      <rect x="985" y="207" width="3" height="8"/>
+    </g>
+    <path d="M300 255 C450 248, 620 260, 780 252 C880 247, 980 255, 1050 252 L1050 270 C980 273, 880 265, 780 270 C620 277, 450 265, 300 272 Z" fill="#0a3d5c" opacity="0.45"/>
+    <path d="M320 258 C480 252, 640 263, 800 256 L800 262 C640 269, 480 258, 320 264 Z" fill="#0ea5e9" opacity="0.08"/>
+    <ellipse cx="600" cy="128" rx="320" ry="55" fill="#16a34a" opacity="0.06" filter="url(#softblur)"/>
+    <text x="600" y="122" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="64" font-weight="700" fill="white" letter-spacing="-0.5" opacity="0.96">Arnav Kumar</text>
+    <text x="600" y="162" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="400" fill="#86efac" letter-spacing="2.5" opacity="0.88">CS @ UT Dallas  ·  ML / AI  ·  Full-Stack  ·  Data Science</text>
+    <text x="600" y="240" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#4ade80" letter-spacing="2.8" opacity="0.45">GRADUATING MAY 2028  ·  RICHARDSON, TX  ·  5+ HACKATHONS</text>
+    <line x1="0" y1="0" x2="1200" y2="0" stroke="#22c55e" stroke-opacity="0.15" stroke-width="1"/>
+    <rect x="0" y="0" width="3" height="280" fill="#22c55e" opacity="0.4"/>
+    <rect x="1197" y="0" width="3" height="280" fill="#0ea5e9" opacity="0.3"/>
+  </g>
+</svg>

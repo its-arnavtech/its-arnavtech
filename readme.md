@@ -60,7 +60,7 @@
   ### TrailCheck: A Full-Stack Trail Safety Web App
   `NestJS` `Next.js` `TypeScript` `Prisma` `SQLite` `QLoRA` `Pydantic`
   
-  Fine-tuned a 3B-parameter instruct model (QLoRA, r=16) on structured NWS and NPS data to perform domain-specific trail safety classification. Built an end-to-end ML data pipeline transforming raw NOAA/NPS data into 660 supervised SFT examples across 12 hazard types and 4 severity levels. The backend uses AI orchestration with a local model, Gemini fallback, and rule-based fallback for resilience. Schema-validated structured output enforces a 5-field JSON contract with Pydantic validation, eliminating malformed responses. Designed for deployment on Google Cloud Platform.
+  Fine-tuned a 3B-parameter instruct model (QLoRA, r=16) on structured NWS and NPS data to perform domain-specific trail safety classification. Built an end-to-end ML data pipeline transforming raw NOAA/NPS data into 660 supervised SFT examples across 12 hazard types and 4 severity levels. The backend uses AI orchestration with a local model, Gemini fallback, and rule-based fallback for resilience. Schema-validated structured output enforces a 5-field JSON contract with Pydantic validation, eliminating malformed responses.
   
   ### Deforestation Detection Model: A PyPI Package
   `Python` `ONNX` `U-Net` `CUDA` `Sentinel-2`

@@ -4,6 +4,7 @@
 
 <br/>
 
+[![Website](https://img.shields.io/badge/Website-I'm%20Arnav-0A94C2?style=for-the-badge&logo=website&logoColor=white)]([https://www.linkedin.com/in/arnav-kumar2932/](https://iam-arnav.vercel.app/))
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Arnav%20Kumar-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/arnav-kumar2932/)
 [![Email](https://img.shields.io/badge/Email-axk230197%40utdallas.edu-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:axk230197@utdallas.edu)
 [![GitHub](https://img.shields.io/badge/GitHub-its--arnavtech-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/its-arnavtech)

@@ -7,11 +7,10 @@
 [![Website](https://img.shields.io/badge/Website-I'm%20Arnav-0A94C2?style=for-the-badge&logo=website&logoColor=white)]([https://www.linkedin.com/in/arnav-kumar2932/](https://iam-arnav.vercel.app/))
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Arnav%20Kumar-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/arnav-kumar2932/)
 [![Email](https://img.shields.io/badge/Email-axk230197%40utdallas.edu-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:axk230197@utdallas.edu)
-[![GitHub](https://img.shields.io/badge/GitHub-its--arnavtech-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/its-arnavtech)
 
 <br/>
 
-### Machine Learning • Full-Stack Engineering • Systems Reliability • Applied AI
+### Full Stack • Data Engineering • Applied AI
 
 </div>
 
@@ -19,7 +18,7 @@
 
 ## About Me
 
-Hey, I’m **Arnav Kumar**, a rising Junior at **The University of Texas at Dallas** building across machine learning, backend systems, cloud infrastructure, and full-stack applications.
+Hey, I’m **Arnav Kumar**, a rising Junior at **The University of Texas at Dallas** building pipelines and projects across Data Engineering and Full Stack roles, typically using Python as a go-to.
 
 I like working on projects that move past “cool demo” territory and into systems that actually behave like production software: structured data pipelines, resilient APIs, deployment workflows, model inference, observability, validation, and clean user-facing interfaces.
 

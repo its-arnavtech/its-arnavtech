@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="header.svg" alt="Arnav Kumar" width="100%" />
+<img src="header.png" alt="Arnav Kumar" width="100%" />
 
 <br/>
 

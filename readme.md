@@ -137,10 +137,6 @@ My focus is data engineering: pipelines, orchestration, and the agentic systems 
 
 ## Featured Projects
 
-*These are the two I can go deepest on: architecture decisions, bugs I actually hit, and why I made the call I did.*
-
----
-
 ### Autonomous Incident Responder
 **Multi-agent incident response for data pipelines: detects, diagnoses, and remediates schema-drift incidents, with a hard stop between "the model suggests it" and "the system does it."**
 

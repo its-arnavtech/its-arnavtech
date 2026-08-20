@@ -22,13 +22,13 @@ I'm **Arnav Kumar**, a rising Junior at **UT Dallas**, currently a **Data Engine
 
 My focus is data engineering: pipelines, orchestration, and the agentic systems that keep them healthy. I build things that hold up under real constraints: deterministic safety gates instead of "trust the LLM," bias audits instead of "assume it's fair," measured results instead of assumed ones. Two of the projects below (below in **Featured Projects**) are ones I can walk through in depth, decision by decision, in an interview.
 
-5+ hackathons, 2 wins.
+10+ hackathons, 2 wins.
 
 ---
 
 ## Experience
 
-**Data Engineering Intern at Resilient Inc.** · *Current*
+**Data Engineer at Resilient Inc.** · *Current*
 
 **AI/ML Engineering Intern at Flexon Technologies**
 - Built and deployed an NLP-driven ETL pipeline to production, processing documents at **130/minute**, including a full run across 600 resumes.
@@ -38,6 +38,14 @@ My focus is data engineering: pipelines, orchestration, and the agentic systems 
 
 **Front-End Developer at Project Management Club (PMC), UTD**
 - Migrated the club site from vanilla HTML/CSS to Next.js, improving load speed by **~200ms**, verified with Google PageSpeed Insights.
+
+---
+
+## Research
+
+**Attention Reallocation for LLMs** · *Fall 2025*
+
+**Quantum Mutation Testing Assistant Researcher** · *Spring 2026*
 
 ---
 
@@ -56,7 +64,7 @@ My focus is data engineering: pipelines, orchestration, and the agentic systems 
 </td>
 <td width="50%">
 
-### AI / Agentic Systems
+### AI workflows / Agentic Systems
 - Multi-agent orchestration with LangGraph
 - Deterministic safety-checks gating autonomous actions
 - Fine-tuning (QLoRA), inference, and ONNX/CUDA deployment

@@ -196,6 +196,16 @@ What made this a real engineering exercise rather than a demo were the bugs I fo
 
 ---
 
+## LeetCode
+
+<div align="center">
+
+[![LeetCode Stats](https://leetcard.jacoblin.cool/Arnav_here?theme=dark&font=Baloo%202&ext=heatmap)](https://leetcode.com/Arnav_here/)
+
+</div>
+
+---
+
 ## Current Areas of Interest
 
 ```txt

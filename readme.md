@@ -18,7 +18,7 @@
 
 ## About Me
 
-I'm **Arnav Kumar**, a rising Junior at **UT Dallas**, currently a **Data Engineering Intern at Resilient Inc.** Previously an AI/ML Engineering Intern at Flexon Technologies, where I helped ship an NLP-driven ETL pipeline to production.
+I'm **Arnav Kumar**, a rising Junior at **UT Dallas**, currently a **Data Engineer at Resilient Inc.** Previously an AI/ML Engineering Intern at Flexon Technologies, where I helped ship an NLP-driven ETL pipeline to production.
 
 My focus is data engineering: pipelines, orchestration, and the agentic systems that keep them healthy. I build things that hold up under real constraints: deterministic safety gates instead of "trust the LLM," bias audits instead of "assume it's fair," measured results instead of assumed ones. Two of the projects below (below in **Featured Projects**) are ones I can walk through in depth, decision by decision, in an interview.
 

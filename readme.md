@@ -22,7 +22,7 @@ I'm **Arnav Kumar**, a rising Junior at **UT Dallas**, currently a **Data Engine
 
 My focus is data engineering: pipelines, orchestration, and the agentic systems that keep them healthy. I build things that hold up under real constraints: deterministic safety gates instead of "trust the LLM," bias audits instead of "assume it's fair," measured results instead of assumed ones.
 
-10+ hackathons, 2 wins.
+10+ hackathons, 3 wins.
 
 ---
 
@@ -194,26 +194,9 @@ Measures how much fuel hedging reduces an airline's cost risk, using real fuel p
 
 ---
 
-## Additional Projects
-
-| Project | What it does | Result |
-|---|---|---|
-| [**Autonomous Incident Responder**](https://github.com/its-arnavtech/Incident-Responder) | Six LangGraph agents that detect, diagnose and remediate schema-drift incidents in streaming pipelines, gated by a deterministic (non-LLM) safety checker | Verified live against Redpanda and a real Kubernetes cluster, **35/35** tests |
-| [**Project Argus**](https://github.com/its-arnavtech/Project-Argus) | Graph-based fraud-ring detection for AML: Rust ingestion, a GraphSAGE GNN, and a LangGraph loop that drafts Suspicious Activity Reports on Azure | Tagged `v1.0` with a **31**-test CI suite |
-| [**ViewFinder**](https://github.com/its-arnavtech/View-Finder) | Local, offline CLI that predicts geolocation from an image/video (GeoCLIP + a custom OpenCLIP/FAISS retrieval system) with a self-built Airflow ETL pipeline for reference data | Fine-tuning cut median geolocation error by up to **68%** |
-| [**IROP Resolution Engine**](https://github.com/its-arnavtech/IROP-Resolution-Engine) | Airline flight-recovery optimizer: OR-Tools CP-SAT co-optimizes aircraft and crew under FAA Part 117 duty limits over a Delta Lake medallion, replaying Winter Storm Elliott at Denver | **75/75** disrupted flights recovered, CP-SAT optimal in ~5.8 s (10 s budget) |
-| [**Cascade**](https://github.com/its-arnavtech/Cascade) | Kubernetes-native chaos engineering platform, 23 microservices, blast-radius scoring, full OTel/Prometheus/Grafana observability | **177**-test suite |
-| [**GPUBoost**](https://github.com/its-arnavtech/GPU-Boost) | CUDA/PyTorch GPU profiling & optimization CLI, published to [PyPI](https://pypi.org/project/gpuboost/); approval-gated patching with hash-pinned diffs and automatic rollback | Measured **4.4×** (FP16 Tensor Cores) and **~1.5×** (AMP on compute-heavy CNNs) |
-| [**Autonomous CSA**](https://github.com/its-arnavtech/Autonomous-CSA) | Multi-tenant agentic support platform: Router → Retriever → Resolver → Critic pipeline with guardrails, human approval, HMAC-verified webhooks and idempotent BullMQ delivery with dead-lettering | Every agent run, step, tool result and approval persisted |
-| **Bench Redeployment Optimizer** | LangGraph agents for IT-staffing bench management: flags consultants coming off engagements and ranks them against open roles, with a four-fifths-rule bias audit | Match scores computed deterministically; the LLM never produces a score |
-| [**TrailCheck**](https://github.com/its-arnavtech/TrailCheck) | Full-stack trail safety platform (NestJS, Next.js, Prisma) backed by a QLoRA-fine-tuned 3B model | 660 rule-generated SFT examples across 12 hazard types |
-| [**ArtFrame**](https://github.com/its-arnavtech/ArtFrame) | Real-time webcam artwork: two-hand tracking (MediaPipe) drives a persistent GPU fluid simulation (ModernGL/GLSL), rendered as ink, fluid glass or risograph print | 60 FPS, with capture and inference kept off the render thread |
-| [**Deforestation Detection**](https://github.com/its-arnavtech/Deforestation-Detection-Model) | U-Net satellite image segmentation, published to PyPI with weights on Hugging Face | Fast tile-level inference on 512×512 imagery |
-
----
-
 ## Hackathons
 
+- 🏆 RowdyHacks 26: Winner, Best Hardware project
 - 🏆 HackSMU VII: Award winner, iMasons Infrastructure track
 - 🏆 RowdyHacks: Best Use of ElevenLabs
 

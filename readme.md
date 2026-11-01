@@ -20,7 +20,7 @@
 
 I'm **Arnav Kumar**, a rising Junior at **UT Dallas**, currently a **Data Engineer at Resilient Inc.** Previously an AI/ML Engineering Intern at Flexon Technologies, where I helped ship an NLP-driven ETL pipeline to production.
 
-My focus is data engineering: pipelines, orchestration, and the agentic systems that keep them healthy. I build things that hold up under real constraints: deterministic safety gates instead of "trust the LLM," bias audits instead of "assume it's fair," measured results instead of assumed ones. Two of the projects below (below in **Featured Projects**) are ones I can walk through in depth, decision by decision, in an interview.
+My focus is data engineering: pipelines, orchestration, and the agentic systems that keep them healthy. I build things that hold up under real constraints: deterministic safety gates instead of "trust the LLM," bias audits instead of "assume it's fair," measured results instead of assumed ones. The two **Deep Dives** under **Featured Projects** are ones I can walk through in depth, decision by decision, in an interview.
 
 10+ hackathons, 2 wins.
 
@@ -117,6 +117,8 @@ My focus is data engineering: pipelines, orchestration, and the agentic systems 
   <img src="https://img.shields.io/badge/DuckDB-FFF000?style=flat-square&logo=duckdb&logoColor=black" />
   <img src="https://img.shields.io/badge/Delta%20Lake-00ADD4?style=flat-square" />
   <img src="https://img.shields.io/badge/Spark%2FPySpark-E25A1C?style=flat-square&logo=apachespark&logoColor=white" />
+  <img src="https://img.shields.io/badge/Databricks-FF3621?style=flat-square&logo=databricks&logoColor=white" />
+  <img src="https://img.shields.io/badge/Power%20BI-F2C811?style=flat-square&logoColor=black" />
 </p>
 
 **AI / Agentic Systems**
@@ -126,6 +128,7 @@ My focus is data engineering: pipelines, orchestration, and the agentic systems 
   <img src="https://img.shields.io/badge/PyTorch%20Geometric-3C2179?style=flat-square" />
   <img src="https://img.shields.io/badge/ONNX-005CED?style=flat-square&logo=onnx&logoColor=white" />
   <img src="https://img.shields.io/badge/CUDA-76B900?style=flat-square&logo=nvidia&logoColor=white" />
+  <img src="https://img.shields.io/badge/MLflow-0194E2?style=flat-square&logo=mlflow&logoColor=white" />
 </p>
 
 **Cloud, DevOps & Full-Stack**
@@ -138,12 +141,84 @@ My focus is data engineering: pipelines, orchestration, and the agentic systems 
   <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB" />
   <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white" />
   <img src="https://img.shields.io/badge/NestJS-E0234E?style=flat-square&logo=nestjs&logoColor=white" />
+  <img src="https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white" />
+  <img src="https://img.shields.io/badge/Angular-DD0031?style=flat-square&logo=angular&logoColor=white" />
   <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" />
+  <img src="https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white" />
 </p>
 
 ---
 
 ## Featured Projects
+
+### Latest Builds
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+#### [Rubiks N Solver](https://github.com/its-arnavtech/Rubiks-N-Solver)
+**One self-trained neural network that solves Rubik's cubes of any size, 2×2 to 100×100+, with every solution verified.**
+
+`Rust` `PyTorch (CUDA)` `PyO3` `WebAssembly` `React` `three.js`
+
+Every NxN cube breaks down into orbits: groups of pieces that only ever swap among themselves. There are just 7 kinds, each a 24-slot puzzle that looks the same at every cube size. The system discovers its own 3-cycle macros, trains one network by self-play to solve any orbit, solves all orbits in parallel on the GPU, then replays the whole solution on an exact Rust simulator.
+
+- **0.44–0.81×** the moves of the deterministic baseline; a 100×100 solves in **~1.6 s**
+- **138/138** benchmark solves verified with zero baseline fallbacks; **0 failures in 100,000** states per orbit type at beam 8
+- Rust engine compiled to WASM, so the browser replays every solution move for move
+
+</td>
+<td width="50%" valign="top">
+
+#### [Meterly](https://github.com/its-arnavtech/Meterly)
+**Multi-tenant usage-metering and billing platform, built to get the hard parts of usage billing right.**
+
+`Java 21` `Spring Boot` `PostgreSQL (RLS)` `Redpanda` `Redis` `Angular` `Kubernetes`
+
+Five services take usage events from intake to a cent-accurate tiered invoice. Counting exactly once is treated as a whole-pipeline problem: Redis idempotency at ingestion, an idempotent ledger in metering, idempotent invoices and a transactional outbox in billing. Tenant isolation lives in the database (Row-Level Security), not in application code.
+
+- Black-box harness against the live stack: **950** idempotent events under client retries and Kafka redelivery, **3** tenants isolated, invoices recomputed **to the cent**
+- Live dashboard gated at **p95 < 850 ms** over STOMP/WebSocket
+- Testcontainers + ArchUnit in CI, Prometheus/Grafana dashboards, K8s manifests with HPAs
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+#### [Pastiche](https://github.com/its-arnavtech/Pastiche)
+**Local audio pipeline that learns your taste and builds new tracks from the stems of songs you already love.**
+
+`Python` `PyTorch` `Demucs` `CLAP` `hnswlib` `OpenVINO (NPU)` `FastAPI`
+
+Demucs splits a library into stems, CLAP embeds each stem in 5 s windows, and a taste model (trained on the GPU, scored on the NPU) drives a key- and BPM-aware planner. Every generated track is stored as a **recipe** (stem, time range, tempo, key, effects, seed), so banning a song re-renders only the sections that used it.
+
+- GPU, CPU and NPU lanes run concurrently, budgeted from the real core count, behind a thermal watchdog added after two uncapped runs powered the laptop off
+- Idempotent, resumable and content-addressed; fatigue and heatmaps derived from append-only events
+- Core logic depends on 7 interfaces, each pinned down by contract tests
+
+</td>
+<td width="50%" valign="top">
+
+#### [Jet Fuel Hedge Risk Engine](https://github.com/its-arnavtech/Jet-Fuel-Hedge-Risk-Quantification-Engine)
+**Quantifies how much fuel hedging actually reduces an airline's cost risk, on real EIA prices.**
+
+`Databricks` `Unity Catalog` `Delta Lake` `PySpark` `MLflow` `Power BI`
+
+A revision-aware bronze/silver/gold medallion over EIA jet fuel, WTI, Brent and heating-oil prices (latest revision wins, withdrawals included) feeds 100,000 distributed GBM price paths and publishes VaR/CVaR by hedge coverage.
+
+- 100K paths and 500K scenario-cost rows in **~48 s**; every risk row reconciled independently against NumPy
+- Backtested the model instead of trusting it: drift bands covered **74.4%** of realized outcomes vs. a nominal 90%, and 3σ weekly moves came **5.5×** more often than a normal distribution implies
+- Five-page Power BI report whose titles recompute from guarded live facts
+
+</td>
+</tr>
+</table>
+
+---
+
+### Deep Dives
 
 ### Autonomous Incident Responder
 **Multi-agent incident response for data pipelines: detects, diagnoses, and remediates schema-drift incidents, with a hard stop between "the model suggests it" and "the system does it."**
@@ -160,7 +235,7 @@ The one decision I'd defend hardest: the **Safety-Checker is plain deterministic
 - Local LLM (Qwen3 via Ollama) handles diagnosis reasoning and postmortem write-ups, no cloud API dependency.
 - MIT-licensed, pushed to GitHub.
 
-[**View Repo →**](https://github.com/its-arnavtech/incident-responder)
+[**View Repo →**](https://github.com/its-arnavtech/Incident-Responder)
 
 ---
 
@@ -180,7 +255,7 @@ What made this a real engineering exercise rather than a demo were the bugs I fo
 - Tagged `v1.0` with a 31-test CI suite and zero credential leaks across 28 commits.
 - Compliance metrics visualized in Tableau.
 
-[**View Repo →**](https://github.com/its-arnavtech/project-argus)
+[**View Repo →**](https://github.com/its-arnavtech/Project-Argus)
 
 ---
 
@@ -188,12 +263,15 @@ What made this a real engineering exercise rather than a demo were the bugs I fo
 
 | Project | What it does | Result |
 |---|---|---|
-| **ViewFinder** | Local, offline CLI that predicts geolocation from an image/video (GeoCLIP + a custom OpenCLIP/FAISS retrieval system) with a self-built Airflow ETL pipeline for reference data | Fine-tuning cut median geolocation error by up to **68%** |
-| **Bench Redeployment Optimizer** | 7-agent LangGraph system for IT-staffing bench management, governed by four-fifths-rule bias audits and human-in-the-loop gating | **222** passing tests, full audit-log coverage |
-| **Cascade** | Kubernetes-native chaos engineering platform, 23 microservices, blast-radius scoring, full OTel/Prometheus/Grafana observability | **177**-test suite |
-| **GPUBoost** | CUDA/PyTorch GPU profiling & optimization CLI, published to PyPI ([Repo →](https://github.com/its-arnavtech/GPU-Boost)) | **3.2x** training throughput improvement |
-| **TrailCheck** | Full-stack trail safety platform (NestJS, Next.js, Prisma) backed by a QLoRA-fine-tuned 3B model | 660 hand-built SFT examples across 12 hazard types |
-| **Deforestation Detection** | U-Net satellite image segmentation, published to PyPI with weights on Hugging Face | Fast tile-level inference on 512×512 imagery |
+| [**ViewFinder**](https://github.com/its-arnavtech/View-Finder) | Local, offline CLI that predicts geolocation from an image/video (GeoCLIP + a custom OpenCLIP/FAISS retrieval system) with a self-built Airflow ETL pipeline for reference data | Fine-tuning cut median geolocation error by up to **68%** |
+| [**IROP Resolution Engine**](https://github.com/its-arnavtech/IROP-Resolution-Engine) | Airline flight-recovery optimizer: OR-Tools CP-SAT co-optimizes aircraft and crew under FAA Part 117 duty limits over a Delta Lake medallion, replaying Winter Storm Elliott at Denver | **75/75** disrupted flights recovered, CP-SAT optimal in ~5.8 s (10 s budget) |
+| [**Cascade**](https://github.com/its-arnavtech/Cascade) | Kubernetes-native chaos engineering platform, 23 microservices, blast-radius scoring, full OTel/Prometheus/Grafana observability | **177**-test suite |
+| [**GPUBoost**](https://github.com/its-arnavtech/GPU-Boost) | CUDA/PyTorch GPU profiling & optimization CLI, published to [PyPI](https://pypi.org/project/gpuboost/); approval-gated patching with hash-pinned diffs and automatic rollback | Measured **4.4×** (FP16 Tensor Cores) and **~1.5×** (AMP on compute-heavy CNNs) |
+| [**Autonomous CSA**](https://github.com/its-arnavtech/Autonomous-CSA) | Multi-tenant agentic support platform: Router → Retriever → Resolver → Critic pipeline with guardrails, human approval, HMAC-verified webhooks and idempotent BullMQ delivery with dead-lettering | Every agent run, step, tool result and approval persisted |
+| **Bench Redeployment Optimizer** | LangGraph agents for IT-staffing bench management: flags consultants coming off engagements and ranks them against open roles, with a four-fifths-rule bias audit | Match scores computed deterministically; the LLM never produces a score |
+| [**TrailCheck**](https://github.com/its-arnavtech/TrailCheck) | Full-stack trail safety platform (NestJS, Next.js, Prisma) backed by a QLoRA-fine-tuned 3B model | 660 rule-generated SFT examples across 12 hazard types |
+| [**ArtFrame**](https://github.com/its-arnavtech/ArtFrame) | Real-time webcam artwork: two-hand tracking (MediaPipe) drives a persistent GPU fluid simulation (ModernGL/GLSL), rendered as ink, fluid glass or risograph print | 60 FPS, with capture and inference kept off the render thread |
+| [**Deforestation Detection**](https://github.com/its-arnavtech/Deforestation-Detection-Model) | U-Net satellite image segmentation, published to PyPI with weights on Hugging Face | Fast tile-level inference on 512×512 imagery |
 
 ---
 

@@ -20,7 +20,7 @@
 
 I'm **Arnav Kumar**, a rising Junior at **UT Dallas**, currently a **Data Engineer at Resilient Inc.** Previously an AI/ML Engineering Intern at Flexon Technologies, where I helped ship an NLP-driven ETL pipeline to production.
 
-My focus is data engineering: pipelines, orchestration, and the agentic systems that keep them healthy. I build things that hold up under real constraints: deterministic safety gates instead of "trust the LLM," bias audits instead of "assume it's fair," measured results instead of assumed ones. The two **Deep Dives** under **Featured Projects** are ones I can walk through in depth, decision by decision, in an interview.
+My focus is data engineering: pipelines, orchestration, and the agentic systems that keep them healthy. I build things that hold up under real constraints: deterministic safety gates instead of "trust the LLM," bias audits instead of "assume it's fair," measured results instead of assumed ones.
 
 10+ hackathons, 2 wins.
 
@@ -158,29 +158,17 @@ My focus is data engineering: pipelines, orchestration, and the agentic systems 
 <td width="50%" valign="top">
 
 #### [Rubiks N Solver](https://github.com/its-arnavtech/Rubiks-N-Solver)
-**One self-trained neural network that solves Rubik's cubes of any size, 2×2 to 100×100+, with every solution verified.**
+One self-trained neural network that solves Rubik's cubes of any size, from 2×2 to 100×100+, and verifies every solution.
 
-`Rust` `PyTorch (CUDA)` `PyO3` `WebAssembly` `React` `three.js`
-
-Every NxN cube breaks down into orbits: groups of pieces that only ever swap among themselves. There are just 7 kinds, each a 24-slot puzzle that looks the same at every cube size. The system discovers its own 3-cycle macros, trains one network by self-play to solve any orbit, solves all orbits in parallel on the GPU, then replays the whole solution on an exact Rust simulator.
-
-- **0.44–0.81×** the moves of the deterministic baseline; a 100×100 solves in **~1.6 s**
-- **138/138** benchmark solves verified with zero baseline fallbacks; **0 failures in 100,000** states per orbit type at beam 8
-- Rust engine compiled to WASM, so the browser replays every solution move for move
+`Rust` `PyTorch` `WebAssembly`
 
 </td>
 <td width="50%" valign="top">
 
 #### [Meterly](https://github.com/its-arnavtech/Meterly)
-**Multi-tenant usage-metering and billing platform, built to get the hard parts of usage billing right.**
+Multi-tenant usage-billing platform: tenants send usage events, watch a live dashboard, and get an accurate tiered invoice each month.
 
-`Java 21` `Spring Boot` `PostgreSQL (RLS)` `Redpanda` `Redis` `Angular` `Kubernetes`
-
-Five services take usage events from intake to a cent-accurate tiered invoice. Counting exactly once is treated as a whole-pipeline problem: Redis idempotency at ingestion, an idempotent ledger in metering, idempotent invoices and a transactional outbox in billing. Tenant isolation lives in the database (Row-Level Security), not in application code.
-
-- Black-box harness against the live stack: **950** idempotent events under client retries and Kafka redelivery, **3** tenants isolated, invoices recomputed **to the cent**
-- Live dashboard gated at **p95 < 850 ms** over STOMP/WebSocket
-- Testcontainers + ArchUnit in CI, Prometheus/Grafana dashboards, K8s manifests with HPAs
+`Java` `Spring Boot` `PostgreSQL` `Kafka`
 
 </td>
 </tr>
@@ -188,29 +176,17 @@ Five services take usage events from intake to a cent-accurate tiered invoice. C
 <td width="50%" valign="top">
 
 #### [Pastiche](https://github.com/its-arnavtech/Pastiche)
-**Local audio pipeline that learns your taste and builds new tracks from the stems of songs you already love.**
+Local audio pipeline that learns your music taste and builds new tracks from the stems of songs you already love.
 
-`Python` `PyTorch` `Demucs` `CLAP` `hnswlib` `OpenVINO (NPU)` `FastAPI`
-
-Demucs splits a library into stems, CLAP embeds each stem in 5 s windows, and a taste model (trained on the GPU, scored on the NPU) drives a key- and BPM-aware planner. Every generated track is stored as a **recipe** (stem, time range, tempo, key, effects, seed), so banning a song re-renders only the sections that used it.
-
-- GPU, CPU and NPU lanes run concurrently, budgeted from the real core count, behind a thermal watchdog added after two uncapped runs powered the laptop off
-- Idempotent, resumable and content-addressed; fatigue and heatmaps derived from append-only events
-- Core logic depends on 7 interfaces, each pinned down by contract tests
+`Python` `PyTorch` `FastAPI`
 
 </td>
 <td width="50%" valign="top">
 
 #### [Jet Fuel Hedge Risk Engine](https://github.com/its-arnavtech/Jet-Fuel-Hedge-Risk-Quantification-Engine)
-**Quantifies how much fuel hedging actually reduces an airline's cost risk, on real EIA prices.**
+Measures how much fuel hedging reduces an airline's cost risk, using real fuel prices and 100,000 simulated price paths.
 
-`Databricks` `Unity Catalog` `Delta Lake` `PySpark` `MLflow` `Power BI`
-
-A revision-aware bronze/silver/gold medallion over EIA jet fuel, WTI, Brent and heating-oil prices (latest revision wins, withdrawals included) feeds 100,000 distributed GBM price paths and publishes VaR/CVaR by hedge coverage.
-
-- 100K paths and 500K scenario-cost rows in **~48 s**; every risk row reconciled independently against NumPy
-- Backtested the model instead of trusting it: drift bands covered **74.4%** of realized outcomes vs. a nominal 90%, and 3σ weekly moves came **5.5×** more often than a normal distribution implies
-- Five-page Power BI report whose titles recompute from guarded live facts
+`Databricks` `Delta Lake` `MLflow` `Power BI`
 
 </td>
 </tr>
@@ -218,51 +194,12 @@ A revision-aware bronze/silver/gold medallion over EIA jet fuel, WTI, Brent and 
 
 ---
 
-### Deep Dives
-
-### Autonomous Incident Responder
-**Multi-agent incident response for data pipelines: detects, diagnoses, and remediates schema-drift incidents, with a hard stop between "the model suggests it" and "the system does it."**
-
-**Tech:** `Python` `LangGraph` `Redpanda` `Kubernetes` `Ollama (Qwen3)` `NetworkX` `JSON Schema`
-
-Six LangGraph agents split the job cleanly: **Detector** and **Diagnosis** figure out what broke and why, **Remediation-Planner** proposes a fix, **Safety-Checker** decides whether it's safe to act, **Executor** runs it, **Reporter** writes it up.
-
-The one decision I'd defend hardest: the **Safety-Checker is plain deterministic Python, not an LLM call.** An agentic system that lets a language model both diagnose *and* approve its own fix is a system waiting to auto-execute something wrong with total confidence. Instead, every action is scored for blast radius against a hard ceiling (`MAX_AUTO_APPROVE_BLAST_RADIUS=15`); anything over that gets denied and logged to `escalations.log` instead of auto-executing.
-
-- Built and verified in phases, with the test suite growing as real components replaced stubs: **10/10 → 23/23 → 35/35** passing.
-- Verified live against a real Redpanda cluster, not mocks, including 9-node blast-radius calculation via a NetworkX dependency graph.
-- The Executor runs against a real local Kubernetes (`kind`) cluster with a genuine rollback path, not a simulated one.
-- Local LLM (Qwen3 via Ollama) handles diagnosis reasoning and postmortem write-ups, no cloud API dependency.
-- MIT-licensed, pushed to GitHub.
-
-[**View Repo →**](https://github.com/its-arnavtech/Incident-Responder)
-
----
-
-### Project Argus
-**Graph-based fraud-ring detection for anti-money-laundering (AML) compliance, built to hold up under the same scrutiny real financial infrastructure gets.**
-
-**Tech:** `Rust` `PyTorch Geometric` `LangGraph` `Azure Cosmos DB (Gremlin)` `Azure Event Hubs` `Tableau` `Azure`
-
-A Rust ingestion engine feeds transaction data into a graph, where a PyTorch Geometric GNN catches fraud rings that look clean at the individual-transaction level but form an obvious pattern once you look at the *relationships* between accounts. A LangGraph multi-agent pipeline then drafts Suspicious Activity Reports (SARs) for compliance review.
-
-What made this a real engineering exercise rather than a demo were the bugs I found and had to actually fix:
-- An **AMQP batching defect** in the Event Hubs ingestion path that was silently dropping/misordering messages under load.
-- A **Cosmos DB partition-key design flaw**: the original key choice created hot partitions; corrected the architecture rather than patching around it.
-- An **empty-output guardrail gap** in the SAR generation pipeline that could let a blank report pass silently.
-- Access is locked down with **Entra ID RBAC** on the Gremlin API, no open graph access.
-
-- Tagged `v1.0` with a 31-test CI suite and zero credential leaks across 28 commits.
-- Compliance metrics visualized in Tableau.
-
-[**View Repo →**](https://github.com/its-arnavtech/Project-Argus)
-
----
-
 ## Additional Projects
 
 | Project | What it does | Result |
 |---|---|---|
+| [**Autonomous Incident Responder**](https://github.com/its-arnavtech/Incident-Responder) | Six LangGraph agents that detect, diagnose and remediate schema-drift incidents in streaming pipelines, gated by a deterministic (non-LLM) safety checker | Verified live against Redpanda and a real Kubernetes cluster, **35/35** tests |
+| [**Project Argus**](https://github.com/its-arnavtech/Project-Argus) | Graph-based fraud-ring detection for AML: Rust ingestion, a GraphSAGE GNN, and a LangGraph loop that drafts Suspicious Activity Reports on Azure | Tagged `v1.0` with a **31**-test CI suite |
 | [**ViewFinder**](https://github.com/its-arnavtech/View-Finder) | Local, offline CLI that predicts geolocation from an image/video (GeoCLIP + a custom OpenCLIP/FAISS retrieval system) with a self-built Airflow ETL pipeline for reference data | Fine-tuning cut median geolocation error by up to **68%** |
 | [**IROP Resolution Engine**](https://github.com/its-arnavtech/IROP-Resolution-Engine) | Airline flight-recovery optimizer: OR-Tools CP-SAT co-optimizes aircraft and crew under FAA Part 117 duty limits over a Delta Lake medallion, replaying Winter Storm Elliott at Denver | **75/75** disrupted flights recovered, CP-SAT optimal in ~5.8 s (10 s budget) |
 | [**Cascade**](https://github.com/its-arnavtech/Cascade) | Kubernetes-native chaos engineering platform, 23 microservices, blast-radius scoring, full OTel/Prometheus/Grafana observability | **177**-test suite |
